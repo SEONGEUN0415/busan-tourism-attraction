@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>부산관광명소</title>
+    <style>
+      @font-face {
+        font-family: "JalnanGothic";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Pretendard-Regular";
+        src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+          format("woff");
+        font-weight: 400;
+        font-style: normal;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+      h1,
+      h2 {
+        color: white;
+        text-align: center;
+      }
+      h2 {
+        font-size: 60px;
+      }
+      strong {
+        font-weight: normal;
+      }
+      p {
+        font-family: "Pretendard-Regular";
+      }
+      img {
+        display: block;
+      }
+      .wrap {
+        margin: 50px auto;
+        width: 860px;
+        font-family: "JalnanGothic";
+      }
+
+      .busan__tour__title {
+        height: 935px;
+        background: url("img/부산관광메인.jpg");
+        object-fit: cover;
+        text-align: center;
+        padding: 100px;
+        position: relative;
+      }
+
+      .busan__tour__title div span {
+        font-size: 20px;
+        font-family: "Pretendard-Regular";
+        background-color: #d86262;
+        color: white;
+        border-radius: 35px;
+        width: 220px;
+        height: 50px;
+        line-height: 50px;
+        display: block;
+        margin: auto;
+      }
+      .busan__tour__title div h1 {
+        margin: 20px 0 50px;
+        font-size: 100px;
+        height: 100px;
+      }
+      .busan__tour__title div p {
+        font-size: 20px;
+        color: white;
+        line-height: 28px;
+      }
+      .busan__tour__title figure {
+        position: absolute;
+        bottom: 60px;
+        left: 50px;
+      }
+
+      .busan__attraction {
+        height: 838px;
+        padding: 100px 50px;
+        background: url("img/부산의관광명소.jpg");
+        text-align: center;
+      }
+      .busan__attraction .items {
+        margin: 50px 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      .busan__attraction .items .item {
+        width: 370px;
+        background-color: white;
+        border-radius: 10px;
+        border: 2px solid black;
+        padding: 15px;
+        position: relative;
+      }
+      .busan__attraction .items .item figure {
+        height: 250px;
+      }
+      .busan__attraction .items .item figure img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .busan__attraction .items .item div span {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background-color: #f98f56;
+        color: white;
+        font-size: 14px;
+        width: 60px;
+        height: 25px;
+        line-height: 25px;
+      }
+      .busan__attraction .items .item div h3 {
+        margin-bottom: 15px;
+        padding: 20px 0;
+        border-bottom: 1px solid black;
+        font-family: "Pretendard-Regular";
+      }
+      .busan__attraction .more__btn {
+        background-color: #fe8a8b;
+        border: 2px solid black;
+        border-radius: 30px;
+        color: white;
+        width: 250px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 20px;
+        font-family: "Pretendard-Regular";
+        margin: auto;
+      }
+
+      .busan__city__tour {
+        padding: 100px 50px;
+        background: rgb(131, 58, 180);
+        background: rgb(254, 138, 139);
+        background: linear-gradient(
+          0deg,
+          rgba(254, 138, 139, 1) 0%,
+          rgba(247, 130, 73, 1) 50%,
+          rgba(255, 175, 131, 1) 99%
+        );
+        position: relative;
+      }
+      .busan__city__tour .items {
+        height: 630px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 40px;
+      }
+      .busan__city__tour .items .item {
+        width: 760px;
+        background-color: white;
+        border-radius: 10px;
+        border: 2px solid black;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .busan__city__tour .items .item figure{
+        width: 355px;
+        height: 270px;
+      }
+      .busan__city__tour .item .item figure img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .busan__city__tour .items .item div {
+        width: 355px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .busan__city__tour .items .item div h3 {
+        font-size: 30px;
+        font-weight: normal;
+        padding-bottom: 10px;
+      }
+      .busan__city__tour .items .item div p {
+        line-height: 25px;
+        margin: 15px 0px 30px;
+      }
+
+      .busan__city__tour .items .item div strong {
+        font-size: 30px;
+        color: red;
+      }
+      .busan__city__tour .reserve__btn {
+        background-color: #063881;
+        margin: 50px auto 0;
+        width: 250px;
+        height: 60px;
+        line-height: 60px;
+        color: white;
+
+        text-align: center;
+        border-radius: 30px;
+        font-size: 20px;
+        border: 2px solid black;
+      }
+      .busan__city__tour > figure {
+        position: absolute;
+        right: 50px;
+        bottom: 0;
+      }
+      .inquiry {
+        background-color: #333333;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        line-height: 100px;
+        font-family: "Pretendard-Regular";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="busan__tour__title">
+        <div>
+          <span> 취향저격 국내여행 </span>
+          <h1>부산시티투어</h1>
+          <p>
+            한국의 항구도시이자 육, 해, 공을 아우르는 중요한 교통 중심지.
+            <br />
+            눈부신 조명과 바다에 비친 도시의 모습이 어우러진
+            <br />
+            부산의 야경은 더없이 낭만적입니다.
+          </p>
+        </div>
+        <figure>
+          <img src="img/main_person.png" alt="" />
+        </figure>
+      </div>
+      <!-- busan__tour__title end -->
+
+      <div class="busan__attraction">
+        <h2>부산의 관광명소</h2>
+        <div class="items">
+          <div class="item">
+            <figure>
+              <img src="img/해운대블루라인파크.jpg" alt="해운대블루라인파크" />
+            </figure>
+            <div>
+              <span>BEST</span>
+              <h3>해운대 블루라인파크</h3>
+              <p>
+                수려한 해안 절경을 따라 해운대 해변열차와
+                <br />
+                해운대 스카이캡슐을 운행하는 <br />
+                국제 관광도시 부산, <br />
+                해운대 관광특구의 핵심 관광 시설
+              </p>
+            </div>
+          </div>
+          <!-- item end -->
+          <div class="item">
+            <figure>
+              <img src="img/해동용궁사.jpg" alt="" />
+            </figure>
+            <div>
+              <span>BEST</span>
+              <h3>해동 용궁사</h3>
+              <p>
+                부산시 기장군 동쪽에 자리잡은 해동 용궁사
+                <br />
+                바다와 가장 가까운 사찰로 알려져 있고, <br />
+                대한민국의 관음성지의 하나
+              </p>
+            </div>
+          </div>
+          <!-- item end -->
+        </div>
+        <!-- items end -->
+        <div class="more__btn">
+          <a href="">더 알아보기</a>
+        </div>
+      </div>
+      <!-- busan attraction end -->
+
+      <div class="busan__city__tour">
+        <figure class="city__tour__person">
+          <img src="img/citytour_person.png" alt="" />
+        </figure>
+        <h2>부산시티투어</h2>
+        <div class="items">
+          <div class="item">
+            <figure>
+              <img src="img/해운대출발코스.jpg" alt="" />
+            </figure>
+            <div>
+              <h3>해운대출발코스</h3>
+              <p>
+                UN기념공원 - 산만디투어 - 망향로 전시관,
+                <br />
+                이바구공작소, 168계단 - 태종대 - <br />
+                영도 흰여울문화마을 - 송도해수욕장 - 스카이워크 <br />
+                - 자갈치시장,남포동 BIFF광장,광복동
+              </p>
+              <strong>32,000원</strong>
+            </div>
+          </div>
+          <!-- item end -->
+          <div class="item">
+            <figure>
+              <img src="img/부산역출발코스.jpg" alt="" />
+            </figure>
+            <div>
+              <h3>부산역출발코스</h3>
+              <p>
+                기장 해동용궁사 - 기장 아난티코브 -
+                <br />해운대 블루라인파크 해변열차 - 미포에서 해운대 <br />
+                - 자갈치 시장, 남포동 BIFF광장, 광복동
+              </p>
+              <strong>32,000원</strong>
+            </div>
+          </div>
+          <!-- item end -->
+        </div>
+        <!-- items end -->
+        <div class="reserve__btn">
+          <a href="#">예약 바로가기</a>
+        </div>
+        <!-- reserve__btn end -->
+
+        <figure>
+          <img src="img/citytour_person.png" alt="부산시티투어사람" />
+        </figure>
+      </div>
+      <!-- busan__city__tour end -->
+
+      <div class="inquiry">
+        <a href="tel:1833-5880">문의전화 : 1833-5880</a>
+      </div>
+      <!-- inquiry end -->
+    </div>
+    <!-- wrap end -->
+  </body>
+</html>
